@@ -1,26 +1,25 @@
-import { useState } from "react";
 import "./index.css";
+import { Routes, Route } from "react-router-dom";
+import MainPage from "./pages/MainPage";
+
+import InputTransaction from "./pages/InputTransactionPages/InputTransaction";
+import ReadReceipt from "./pages/InputTransactionPages/ReadReceipt";
+import SingleTransaction from "./pages/InputTransactionPages/SingleTransaction";
+import MultipleTransactions from "./pages/InputTransactionPages/MultipleTransactions";
+
+import ViewSpending from "./pages/ViewSpending";
+
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-blue-400 text-black">
-      <h1 className="text-3xl font-bold mb-4">
-        Personal Finance Tracker
-      </h1>
-
-      <p className="mb-6 text-lg">
-        Tailwind + Vite + React + TypeScript is working 🎉
-      </p>
-
-      <button
-        className="px-6 py-2 rounded-2xl bg-green-600 text-blue-200 font-medium shadow-md hover:bg-green-300 transition"
-        onClick={() => setCount(count + 1)}
-      >
-        Count: {count}
-      </button>
-    </div>
+  return (  
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/input-transaction" element={<InputTransaction />} />
+          <Route path="/read-receipt" element={<ReadReceipt />} />
+          <Route path="/single-transaction" element={<SingleTransaction />} />
+          <Route path="/multiple-transactions" element={<MultipleTransactions />} />
+          <Route path="/view-spending" element={<ViewSpending />} />
+        </Routes>
   );
 }
 
